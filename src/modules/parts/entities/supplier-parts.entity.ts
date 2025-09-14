@@ -12,10 +12,11 @@ import {
 @Entity({
   name: 'supplier_parts',
 })
-@Index('idx_supplier_parts_main_part_id_supplier_id', [
-  'mainPartId',
-  'supplierId',
-])
+@Index(
+  'idx_supplier_parts_main_part_id_supplier_id',
+  ['mainPartId', 'supplierId'],
+  { unique: true },
+)
 export class SupplierPartEntity {
   @PrimaryGeneratedColumn({
     name: 'id',

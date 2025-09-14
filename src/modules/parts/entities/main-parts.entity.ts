@@ -61,7 +61,7 @@ export class MainPartEntity {
     name: 'manufacturer_id',
     foreignKeyConstraintName: 'fk_main_parts_manufacturer_id',
   })
-  partManufacturer: PartManufacturerEntity;
+  manufacturer: PartManufacturerEntity;
 
   @OneToMany('SupplierPartEntity', 'mainPart')
   supplierParts: SupplierPartEntity[];

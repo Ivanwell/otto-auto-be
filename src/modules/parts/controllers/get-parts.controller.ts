@@ -1,13 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import { PartsService } from '../services/get-parts.service.js';
-import { MainPartEntity } from '../entities/main-parts.entity.js';
+import { OnePartDto } from '../dto/one-part.dto.js';
+import { PartRequest } from '../dto/request/part.request.js';
 
-@Controller('/test')
+@Controller()
 export class GetPartsController {
   constructor(private readonly partsService: PartsService) {}
 
-  @Get()
-  getHello(): Promise<MainPartEntity | null> {
-    return this.partsService.getParts();
+  @Get('/api/1.0/part/:article')
+  async getOnePart(@Param() params: PartRequest): Promise<OnePartDto> {
+    const part = await this.partsService.getPartByArticle(params.article);
+    return OnePartDto.of(part);
   }
 }

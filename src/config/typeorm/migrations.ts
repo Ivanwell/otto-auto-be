@@ -1,4 +1,9 @@
 import { Migrations1757783195047 } from '../../modules/parts/migrations/1757783195047-migrations.js';
 import { Migrations1757786752991 } from '../../modules/parts/migrations/1757786752991-migrations.js';
+import { Migrations1757839456812 } from '../../modules/parts/migrations/1757839456812-migrations.js';
 
-export default [Migrations1757783195047, Migrations1757786752991];
+export default [
+  Migrations1757783195047,
+  Migrations1757786752991,
+  Migrations1757839456812,
+];
