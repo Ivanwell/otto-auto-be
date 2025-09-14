@@ -1,4 +1,5 @@
 import { MainPartEntity } from './main-parts.entity.js';
+import { PartSupplierEntity } from './part-suppliers.entity.js';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -50,7 +51,6 @@ export class SupplierPartEntity {
 
   @Column({
     name: 'price',
-    type: 'integer',
   })
   price: number;
 
@@ -59,6 +59,16 @@ export class SupplierPartEntity {
     type: 'integer',
   })
   supplierId: number;
+
+  @ManyToOne(() => PartSupplierEntity, (partSupplier) => partSupplier.id, {
+    onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
+  })
+  @JoinColumn({
+    name: 'supplier_id',
+    foreignKeyConstraintName: 'fk_part_supplier_supplier_id',
+  })
+  supplier: PartSupplierEntity;
 
   @CreateDateColumn({
     name: 'created_at',

@@ -45,6 +45,14 @@ export class MainPartEntity {
   article: string;
 
   @Column({
+    name: 'image_url',
+    type: 'varchar',
+    length: 2040,
+    nullable: true,
+  })
+  imageUrl: string;
+
+  @Column({
     name: 'manufacturer_id',
     type: 'integer',
   })
